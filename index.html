@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEco — Greener By Every Scan</title>
+    <meta name="description" content="VEco — Scan any product. See the truth. Choose better.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&family=Source+Serif+4:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F4F1E9',
+                        deepGreen: '#0B3D2E',
+                        leafGreen: '#2F8B57',
+                        limeAccent: '#A8D08D',
+                        earthBrown: '#5A4B3A',
+                        danger: '#D64545',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                        serif: ['"Source Serif 4"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Texture & Animations */
+        .bg-grain {
+            position: fixed; inset: 0; pointer-events: none; z-index: 50;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+        .card-reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .card-reveal.active { opacity: 1; transform: translateY(0); }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
+    </style>
+</head>
+<body class="bg-cream text-earthBrown font-sans overflow-x-hidden selection:bg-limeAccent selection:text-deepGreen">
+
+    <div class="bg-grain"></div>
+
+    <nav class="fixed w-full z-40 top-0 bg-cream/90 backdrop-blur-md border-b border-earthBrown/10 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-deepGreen rounded-full flex items-center justify-center text-limeAccent">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+                <span class="font-heading font-bold text-2xl text-deepGreen">VEco</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-deepGreen">
+                <a href="#problem" class="hover:text-leafGreen">The Problem</a>
+                <a href="#solution" class="hover:text-leafGreen">Solution</a>
+                <a href="#vision" class="hover:text-leafGreen">Vision</a>
+                <button onclick="scrollToWaitlist()" class="bg-deepGreen text-white px-5 py-2 rounded-full hover:bg-leafGreen transition-all">
+                    Join Waitlist
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-block px-3 py-1 rounded-full bg-limeAccent/20 text-deepGreen text-xs font-bold tracking-wide uppercase">
+                    Coming Jan 15, 2026
+                </div>
+                <h1 class="font-heading font-bold text-5xl md:text-7xl text-deepGreen leading-tight">
+                    Greener by <br><span class="text-leafGreen relative">Every Scan</span>
+                </h1>
+                <p class="font-serif text-xl md:text-2xl italic text-earthBrown/80">
+                    Scan any product. See the truth. Choose better.
+                </p>
+                <p class="text-sm text-earthBrown/70 max-w-md">
+                    Be among the first to shape the future of conscious buying.
+                </p>
+                
+                <button onclick="scrollToWaitlist()" class="bg-deepGreen text-white font-bold text-lg py-4 px-8 rounded-xl shadow-lg hover:bg-leafGreen hover:-translate-y-1 transition-all">
+                    Join the Waitlist
+                </button>
+            </div>
+
+            <div class="relative h-[500px] flex items-center justify-center">
+                <div class="absolute top-0 -left-4 w-72 h-72 bg-leafGreen rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+                <div class="absolute top-0 -right-4 w-72 h-72 bg-limeAccent rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+                
+                <div class="relative z-10 bg-deepGreen w-64 h-[480px] rounded-[2rem] border-8 border-deepGreen shadow-2xl overflow-hidden transform rotate-[-3deg] hover:rotate-0 transition-all duration-500">
+                    <div class="absolute inset-0 bg-gray-800 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=400&q=80" class="h-2/3 object-cover opacity-60">
+                        
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="w-48 h-48 border-2 border-white/50 rounded-lg relative">
+                                <div class="absolute top-0 w-full h-0.5 bg-limeAccent animate-[scan_2s_infinite]"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white absolute bottom-0 w-full p-4 rounded-t-xl animate-[slideUp_1s_ease-out]">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-deepGreen">Product Analysis</span>
+                                <span class="bg-leafGreen text-white text-xs px-2 py-1 rounded">Excellent</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full w-[85%] bg-leafGreen"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">High nutritional value. Low carbon footprint.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem" class="py-20 bg-deepGreen text-cream">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-12">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl">The Problem</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="space-y-3">
+                    <i class="fa-solid fa-eye-slash text-limeAccent text-2xl"></i>
+                    <p class="font-medium">Most products look harmless.</p>
+                    <p class="text-sm opacity-70">But labels are confusing. Greenwashing is everywhere.</p>
+                </div>
+                <div class="space-y-3">
+                    <i class="fa-solid fa-people-roof text-limeAccent text-2xl"></i>
+                    <p class="font-medium">Families are left guessing.</p>
+                    <p class="text-sm opacity-70">Especially kids. No clarity on what's actually good.</p>
+                </div>
+                <div class="space-y-3">
+                    <i class="fa-solid fa-layer-group text-limeAccent text-2xl"></i>
+                    <p class="font-medium">Zero Clarity.</p>
+                    <p class="text-sm opacity-70">A mother. A child. Hundreds of options. No answers.</p>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/10">
+                <p class="text-xl font-serif italic">"This is where VEco steps in."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative h-80 bg-gray-200 rounded-2xl overflow-hidden group">
+                <div class="absolute inset-0 bg-[#e0ded5]"></div>
+                <div class="absolute bottom-0 left-10 w-24 h-48 bg-deepGreen rounded-t-full opacity-90"></div> <div class="absolute bottom-0 right-20 w-16 h-32 bg-leafGreen rounded-t-full opacity-90"></div> <div class="absolute top-10 right-10 w-12 h-12 bg-limeAccent rounded-full opacity-50 blur-xl"></div>
+            </div>
+            
+            <div class="space-y-6">
+                <h3 class="font-heading font-bold text-3xl text-deepGreen">Origin Story</h3>
+                <p class="text-earthBrown leading-relaxed">
+                    During a sustainability workshop, a young student raised his hand and asked:
+                </p>
+                <blockquote class="border-l-4 border-leafGreen pl-4 font-serif text-xl italic text-deepGreen">
+                    “Dada… how will we know what is good and what is not?”
+                </blockquote>
+                <p class="text-earthBrown leading-relaxed">
+                    That simple question exposed the gap between learning about sustainability and actually living it. 
+                    The answer became one word: <span class="font-bold text-deepGreen">VEco</span>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-4xl text-deepGreen mb-4">The VEco Solution</h2>
+                <p class="text-lg text-earthBrown">One scan. Clear answers. Better choices.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-reveal bg-cream p-6 rounded-xl hover:shadow-lg transition-all">
+                    <i class="fa-solid fa-barcode text-deepGreen text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">EcoScore</h3>
+                    <p class="text-sm opacity-80">Instant impact score for every product.</p>
+                </div>
+                <div class="card-reveal bg-cream p-6 rounded-xl hover:shadow-lg transition-all">
+                    <i class="fa-solid fa-leaf text-deepGreen text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Greener Alternatives</h3>
+                    <p class="text-sm opacity-80">Safer substitutes suggested instantly.</p>
+                </div>
+                <div class="card-reveal bg-cream p-6 rounded-xl hover:shadow-lg transition-all">
+                    <i class="fa-solid fa-triangle-exclamation text-danger text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Danger Alerts</h3>
+                    <p class="text-sm opacity-80">Red flags for toxins and allergens.</p>
+                </div>
+                <div class="card-reveal bg-cream p-6 rounded-xl hover:shadow-lg transition-all">
+                    <i class="fa-solid fa-heart-pulse text-deepGreen text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Health Score</h3>
+                    <p class="text-sm opacity-80">Full ingredient & health analysis.</p>
+                </div>
+                <div class="card-reveal bg-cream p-6 rounded-xl hover:shadow-lg transition-all">
+                    <i class="fa-solid fa-coins text-deepGreen text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">EcoCredits</h3>
+                    <p class="text-sm opacity-80">Rewards for building sustainable habits.</p>
+                </div>
+                <div class="card-reveal bg-deepGreen text-white p-6 rounded-xl flex flex-col justify-center items-center text-center">
+                    <i class="fa-solid fa-lock text-limeAccent text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg">More Features</h3>
+                    <p class="text-xs opacity-80 mt-1">Dropping Jan 15</p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-deepGreen/5 rounded-2xl p-8 md:p-12 text-center">
+                <h3 class="font-heading font-bold text-2xl text-deepGreen mb-4">The Psychology Layer</h3>
+                <p class="text-earthBrown max-w-2xl mx-auto mb-6">
+                    VEco removes confusion and makes decisions effortless. Good habits should feel natural — VEco makes them natural.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold text-deepGreen">
+                    <span class="bg-white px-4 py-2 rounded-full shadow-sm">Zero Cognitive Load</span>
+                    <span class="bg-white px-4 py-2 rounded-full shadow-sm">Instant Feedback</span>
+                    <span class="bg-white px-4 py-2 rounded-full shadow-sm">Identity Shifting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-deepGreen text-white text-center relative overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto px-6">
+            <p class="text-limeAccent font-bold tracking-widest uppercase mb-4">The Revolution Begins</p>
+            <h2 class="font-heading font-bold text-3xl md:text-4xl mb-8">January 15, 2026 | 7:00 PM IST</h2>
+            
+            <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto" id="countdown">
+                <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                    <span class="block text-3xl md:text-4xl font-bold" id="days">00</span>
+                    <span class="text-xs opacity-70">Days</span>
+                </div>
+                <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                    <span class="block text-3xl md:text-4xl font-bold" id="hours">00</span>
+                    <span class="text-xs opacity-70">Hours</span>
+                </div>
+                <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                    <span class="block text-3xl md:text-4xl font-bold" id="minutes">00</span>
+                    <span class="text-xs opacity-70">Mins</span>
+                </div>
+                <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                    <span class="block text-3xl md:text-4xl font-bold" id="seconds">00</span>
+                    <span class="text-xs opacity-70">Secs</span>
+                </div>
+            </div>
+            
+            <p class="mt-8 opacity-80 text-sm">A major reveal. EcoCredits unlock. A new chapter begins.</p>
+        </div>
+    </section>
+
+    <section id="waitlist" class="py-20 px-6">
+        <div class="max-w-xl mx-auto bg-white rounded-2xl shadow-xl border border-earthBrown/10 p-8">
+            <div class="text-center mb-8">
+                <h2 class="font-heading font-bold text-3xl text-deepGreen">Join the Early Waitlist</h2>
+                <p class="text-sm text-earthBrown mt-2">Choose your role and claim your spot.</p>
+            </div>
+
+            <form id="waitlist-form" class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold text-earthBrown uppercase">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-deepGreen mt-1">
+                </div>
+                
+                <div>
+                    <label class="text-xs font-bold text-earthBrown uppercase">I am a...</label>
+                    <select id="role" name="role" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-deepGreen mt-1 bg-white">
+                        <option value="General User">General User</option>
+                        <option value="Student">Student</option>
+                        <option value="Parent">Parent</option>
+                        <option value="Teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="submit-btn" class="w-full bg-deepGreen text-white font-bold py-4 rounded-lg hover:bg-leafGreen transition-colors mt-4">
+                    Join the VEco Waitlist
+                </button>
+            </form>
+
+            <div id="success-message" class="hidden text-center py-10">
+                <i class="fa-solid fa-circle-check text-4xl text-leafGreen mb-4"></i>
+                <h3 class="font-bold text-xl text-deepGreen">You're on the list!</h3>
+                <p class="text-sm text-earthBrown mt-2">Check your email for confirmation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-cream border-t border-earthBrown/10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-heading font-bold text-3xl text-deepGreen mb-12">The Team</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-deepGreen rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">SK</div>
+                    <h3 class="font-bold text-xl text-deepGreen">SK Reezaal Arafat</h3>
+                    <p class="text-leafGreen text-sm font-bold mb-2">Founder</p>
+                    <p class="text-sm text-earthBrown opacity-80 max-w-xs">Climate educator. Tech builder. The spark behind VEco’s mission.</p>
+                    <div class="flex gap-3 mt-3">
+                        <a href="mailto:reezaalarafat@gmail.com" class="text-deepGreen hover:text-leafGreen"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/sk-reezaal-arafat-ba6887352" target="_blank" class="text-deepGreen hover:text-leafGreen"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-earthBrown rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">RZ</div>
+                    <h3 class="font-bold text-xl text-deepGreen">Richard Zorto</h3>
+                    <p class="text-leafGreen text-sm font-bold mb-2">Co-Founder</p>
+                    <p class="text-sm text-earthBrown opacity-80 max-w-xs">Systems thinker. Product mind. Turning big ideas into real tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-deepGreen text-white py-10 text-center text-sm opacity-80">
+        <p>&copy; 2025 VEco. Greener by every scan.</p>
+        <div class="mt-4 flex justify-center gap-4">
+            <a href="mailto:reezaalarafat@gmail.com" class="hover:text-limeAccent">reezaalarafat@gmail.com</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/in/sk-reezaal-arafat-ba6887352" target="_blank" class="hover:text-limeAccent">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Scroll Helper
+        function scrollToWaitlist() {
+            document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 2. Countdown Timer (Target: Jan 15, 2026 19:00:00 IST)
+        const targetDate = new Date("2026-01-15T19:00:00+05:30").getTime();
+
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("countdown").innerHTML = "REVEALED";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+
+        // 3. Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        });
+        document.querySelectorAll('.card-reveal').forEach(el => observer.observe(el));
+
+        // 4. Form Handling (Connecting to Backend)
+        const form = document.getElementById('waitlist-form');
+        const successMsg = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            submitBtn.innerText = "Joining...";
+            submitBtn.disabled = true;
+
+            const formData = {
+                email: document.getElementById('email').value,
+                role: document.getElementById('role').value
+            };
+
+            try {
+                // This URL assumes you deploy the backend code to Vercel or a similar host
+                // If running locally, change to 'http://localhost:3000/api/submit'
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    form.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                } else {
+                    alert("Something went wrong. Please try again.");
+                    submitBtn.innerText = "Join the VEco Waitlist";
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // Fallback for demo purposes if backend isn't connected yet
+                form.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
