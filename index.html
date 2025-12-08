@@ -378,57 +378,71 @@
         </div>
     </section>
 
-    <section id="waitlist" class="py-24 px-6 relative">
-        <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-2xl shadow-deepGreen/10 border border-earthBrown/10 p-8 md:p-12 relative z-10">
-            <div class="text-center mb-10">
-                <h2 class="font-heading font-bold text-4xl text-deepGreen mb-3">Join the Early Waitlist</h2>
-                <p class="text-earthBrown">Secure your spot. Priority access for teachers & students.</p>
+    <section id="waitlist" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-deepGreen/5 -skew-y-3 transform origin-top-left z-0"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="flex flex-col items-center mb-8">
+                <div class="flex -space-x-4 mb-3">
+                    <div class="w-10 h-10 rounded-full border-2 border-cream bg-gray-200 overflow-hidden"><img src="https://i.pravatar.cc/100?img=33"></div>
+                    <div class="w-10 h-10 rounded-full border-2 border-cream bg-gray-200 overflow-hidden"><img src="https://i.pravatar.cc/100?img=47"></div>
+                    <div class="w-10 h-10 rounded-full border-2 border-cream bg-gray-200 overflow-hidden"><img src="https://i.pravatar.cc/100?img=12"></div>
+                    <div class="w-10 h-10 rounded-full border-2 border-cream bg-deepGreen text-white flex items-center justify-center text-xs font-bold">+400</div>
+                </div>
+                <p class="text-sm text-deepGreen font-medium opacity-80">Join 400+ students, teachers & founders waiting.</p>
             </div>
 
-            <form id="waitlist-form" class="space-y-6">
-                <div class="space-y-2">
-                    <label class="text-xs font-bold text-deepGreen uppercase tracking-wide">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="you@example.com" class="w-full p-4 bg-cream/50 border border-gray-200 rounded-xl focus:outline-none focus:border-leafGreen focus:ring-2 focus:ring-leafGreen/20 transition-all">
+            <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 p-8 md:p-12 max-w-xl mx-auto">
+                <div class="text-center mb-10">
+                    <div class="inline-block bg-limeAccent/20 text-deepGreen text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Limited Beta Slots</div>
+                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-deepGreen mb-3">Secure Early Access</h2>
+                    <p class="text-earthBrown text-sm md:text-base">We are releasing access in waves. Priority is given to verified students.</p>
                 </div>
-                
-                <div class="space-y-2">
-                    <label class="text-xs font-bold text-deepGreen uppercase tracking-wide">I am a...</label>
-                    <div class="relative">
-                        <select id="role" name="role" required class="w-full p-4 bg-cream/50 border border-gray-200 rounded-xl focus:outline-none focus:border-leafGreen focus:ring-2 focus:ring-leafGreen/20 appearance-none cursor-pointer">
-                            <option value="General User">General User</option>
-                            <option value="Student">Student</option>
-                            <option value="Parent">Parent</option>
-                            <option value="Teacher">Teacher</option>
-                            <option value="Retailer">Retailer</option>
-                        </select>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-deepGreen">
-                            <i class="fa-solid fa-chevron-down"></i>
+
+                <form id="waitlist-form" class="space-y-5">
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-deepGreen/50"><i class="fa-solid fa-envelope"></i></div>
+                        <input type="email" id="email" name="email" required placeholder="name@school.edu" class="w-full pl-11 pr-4 py-4 bg-cream/30 border border-gray-200 rounded-xl focus:outline-none focus:border-leafGreen focus:ring-4 focus:ring-leafGreen/10 transition-all font-medium text-deepGreen">
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-deepGreen/50"><i class="fa-solid fa-user-tag"></i></div>
+                        <div class="relative">
+                            <select id="role" name="role" required class="w-full pl-11 pr-10 py-4 bg-cream/30 border border-gray-200 rounded-xl focus:outline-none focus:border-leafGreen focus:ring-4 focus:ring-leafGreen/10 transition-all font-medium text-deepGreen appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select your role...</option>
+                                <option value="General User">General User</option>
+                                <option value="Student">Student</option>
+                                <option value="Parent">Parent</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Retailer">Retailer</option>
+                            </select>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-deepGreen/50"><i class="fa-solid fa-chevron-down text-xs"></i></div>
                         </div>
                     </div>
-                </div>
+                    <button type="submit" id="submit-btn" class="w-full bg-deepGreen text-white font-bold text-lg py-4 rounded-xl shadow-xl shadow-deepGreen/20 hover:bg-leafGreen hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 flex justify-center items-center gap-2">
+                        <span>Request Access</span> <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </button>
+                </form>
 
-                <button type="submit" id="submit-btn" class="w-full bg-deepGreen text-white font-bold py-4 rounded-xl hover:bg-leafGreen hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-                    Join the VEco Waitlist
-                </button>
-            </form>
-
-            <div id="success-message" class="hidden text-center py-12">
-                <div class="w-20 h-20 bg-limeAccent/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-[blob_1s_ease-out]">
-                    <i class="fa-solid fa-check text-4xl text-leafGreen"></i>
-                </div>
-                <h3 class="font-heading font-bold text-2xl text-deepGreen mb-2">You're on the list!</h3>
-                <p class="text-earthBrown mb-8">Check your email for confirmation.</p>
-                <div class="bg-cream p-4 rounded-xl border border-deepGreen/10">
-                    <p class="text-xs font-bold text-deepGreen mb-3 uppercase">Share to bump your priority</p>
-                    <div class="flex justify-center gap-4 text-xl">
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow hover:text-leafGreen transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow hover:text-leafGreen transition-colors"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow hover:text-leafGreen transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <div id="success-message" class="hidden">
+                    <div class="bg-gradient-to-br from-deepGreen to-leafGreen rounded-2xl p-1 shadow-inner">
+                        <div class="bg-white rounded-xl p-8 text-center border border-white/10 relative overflow-hidden">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-check text-2xl text-leafGreen"></i></div>
+                            <h3 class="font-heading font-bold text-2xl text-deepGreen mb-1">Access Requested</h3>
+                            <p class="text-sm text-earthBrown mb-6">We've sent a confirmation email to your inbox.</p>
+                            <div class="border-t border-dashed border-gray-300 pt-6 mt-2">
+                                <p class="text-xs font-bold text-deepGreen uppercase tracking-widest mb-3">Bump your priority</p>
+                                <div class="flex justify-center gap-3">
+                                    <button class="w-10 h-10 rounded-full bg-gray-100 hover:bg-green-500 hover:text-white transition-all flex items-center justify-center"><i class="fa-brands fa-whatsapp"></i></button>
+                                    <button class="w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-500 hover:text-white transition-all flex items-center justify-center"><i class="fa-brands fa-twitter"></i></button>
+                                    <button class="w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-700 hover:text-white transition-all flex items-center justify-center"><i class="fa-brands fa-linkedin"></i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <section class="py-24 bg-cream border-t border-earthBrown/10">
         <div class="max-w-6xl mx-auto px-6 text-center">
