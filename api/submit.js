@@ -26,7 +26,7 @@ export default async function handler(req, res) {
           <p>Thanks for joining the revolution, <strong>${role}</strong>.</p>
           <p>We will reveal the future on <strong>Jan 15, 2026</strong>.</p>
           <br>
-          <p>Greener by every scan,<br>Sk Reezaal Arafat</p>
+          <p>Greener by every scan,<br>SK Reezaal Arafat</p>
         </div>
       `
     });
