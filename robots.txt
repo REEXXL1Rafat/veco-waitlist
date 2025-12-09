@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://veco-waitlist-beta.vercel.app/sitemap.xml
